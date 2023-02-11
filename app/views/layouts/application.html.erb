@@ -11,6 +11,79 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <% if admin_signed_in? %>
+        <% if request.fullpath.include? "/admin" %>
+          <ul>
+            <li>
+              商品一覧
+            </li>
+            <li>
+              会員一覧
+            </li>
+            <li>
+              注文履歴一覧
+            </li>
+            <li>
+              ジャンル一覧
+            </li>
+            <li>
+              ログアウト
+            </li>
+          </ul>
+        <% else %>
+          <ul>
+            <li>
+              About
+            </li>
+            <li>
+              商品一覧
+            </li>
+            <li>
+              新規登録
+            </li>
+            <li>
+              ログイン
+            </li>
+          </ul>
+        <% end %>
+      <% elsif customer_signed_in? %>
+        <ul>
+          <li>
+            マイページ
+          </li>
+          <li>
+            商品一覧
+          </li>
+          <li>
+            カート
+          </li>
+          <li>
+            ログアウト
+          </li>
+        </ul>
+      <% else %>
+        <ul>
+          <li>
+            About
+          </li>
+          <li>
+            商品一覧
+          </li>
+          <li>
+            新規登録
+          </li>
+          <li>
+            ログイン
+          </li>
+        </ul>
+      <% end %>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+
+    </footer>
   </body>
 </html>

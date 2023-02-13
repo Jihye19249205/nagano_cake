@@ -1,2 +1,39 @@
-<h1><%= @customer.last_name + @customer.first_name %>さんの会員情報</h1>
-
+<h1><%= @customer.last_name + @customer.first_name %>さんの会員情報編集</h1>
+<table>
+  <tr>
+    <td>会員ID</td>
+    <td>氏名</td>
+    <td>フリガナ</td>
+    <td>郵便番号</td>
+    <td>住所</td>
+    <td>電話番号</td>
+    <td>メールアドレス</td>
+    <td>会員ステータス</td>
+  </tr>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th colspan = "1"></th>
+      <th colspan = "2"></th>
+      <th colspan = "3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @customer.id %></td>
+      <%= form_with url: edit_admin_customer_path do |f| %>
+      <td><%= f.text_field :last_name %></td>
+      <td><%= f.text_field :first_name %></td>
+      <td><%= f.text_field :postal_code %></td>
+      <td><%= f.text_area :address %></td>
+      <td><%= f.text_field :telephone_number %></td>
+      <td><%= f.text_field :email %></td>
+      <!--<td>会員ステータスチェック</td>-->
+      <td><%= f.submit '変更を保存' </td>
+      <% end %>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

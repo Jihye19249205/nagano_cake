@@ -1,1 +1,23 @@
-<h1>Admin/Topページ</h1>
+<h3>注文履歴一覧</h3>
+<table>
+  <thead>
+    <tr>
+      <th>購入日時</th>
+      <th>購入者</th>
+      <th>注文個数</th>
+      <th>注文ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <%= @order_details.each do |f| %>
+      <td><%= order_detail.updated.at %></td>
+      <td><%= order_detail.</td>
+      <td></td>
+      <td></td>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+
+

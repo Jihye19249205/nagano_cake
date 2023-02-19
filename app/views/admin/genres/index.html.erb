@@ -1,7 +1,7 @@
 <%= flash[:notice] %>
 
 <h3>ジャンル一覧・追加</h3>
-<%= form_with model: genre, url: admin_genres_path do |f| %>
+<%= form_with model: @genre, url: admin_genres_path(@genre) do |f| %>
   <h4>ジャンル名</h4>
   <%= f.text_field :name %>
   <!--bootstrap button succes↓-->
@@ -15,12 +15,12 @@
     </tr>
   </thead>
   <tbody>
+    <% @genres.each do |genre| %>
     <tr>
-      <% @genres.each do |genre| %>
-      <td><%= @genre.name %></td>
-      <td><%= link_to "編集する", edit_admin_genre_path(@genre.id) %></td>
-      <% end %>
+      <td><%= genre.name %></td>
+      <td><%= link_to '編集する', edit_admin_genre_path(@genre.id) %></td>
     </tr>
+    <% end %>
   </tbody>
 </table>
 

@@ -6,12 +6,13 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # @item.genre_id = genre_id
+    @genre = @item.genre_id
     if @item.save
-      redirect_to admin_item_path(@item.id)
+      redirect_to admin_item_path
       flash[:notice] = "商品登録が完了しました"
-    # else
-    #   render "/admin/items"
+    else
+      @items = Item.all
+      render :index
     end
   end
 
@@ -21,7 +22,7 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @genre = @item.genre
+    @genre_id = @item.genre_id
   end
 
   def edit
@@ -41,7 +42,7 @@ class Admin::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :price, :genre, :image)
+    params.require(:item).permit(:name, :introduction, :genre, :price, :image)
   end
 
 end

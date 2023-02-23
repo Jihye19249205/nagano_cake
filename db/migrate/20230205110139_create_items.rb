@@ -1,7 +1,7 @@
 class CreateItems < ActiveRecord::Migration[6.1]
   def change
     create_table :items do |t|
-      
+
       # ジャンルid
       t.integer :genre_id, null: false
       # 商品名
@@ -15,5 +15,6 @@ class CreateItems < ActiveRecord::Migration[6.1]
       # 登録日時、更新日時
       t.timestamps null: false
     end
+
   end
 end

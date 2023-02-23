@@ -7,7 +7,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
   
-  private
+  # private
   
   # def order_params
   #   params.require(:order).permit(:)

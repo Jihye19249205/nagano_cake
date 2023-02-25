@@ -16,5 +16,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.timestamps null: false
     end
 
+    
+
   end
 end

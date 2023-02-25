@@ -11,14 +11,14 @@ class Admin::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     # admin = Admin.find_by(email: params[:session][:email])
-    # # if admin && admin.authenticate(params[:session][:password])
-    #   log_in admin
-    #   redirect_to admin_path, success: 'ログインに成功しました'
-    #   flash[:notice] = 'ログインに成功しました'
-    # else
-      # flash.now[:danger] = 'ログインに失敗しました'
-      # render :new
-    # end
+  #   if admin && admin.authenticate(params[:session][:password])
+  #     log_in admin
+      redirect_to admin_path, success: 'ログインに成功しました'
+  #     flash[:notice] = 'ログインに成功しました'
+  #   else
+  #     flash.now[:danger] = 'ログインに失敗しました'
+  #     render :new
+  #   end
   end
 
   # DELETE /resource/sign_out
@@ -28,12 +28,12 @@ class Admin::SessionsController < Devise::SessionsController
     # flash[:notice] = "ログアウトしました"
   end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
-  # end
+  def configure_sign_in_params
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
+  end
 
   # private
 

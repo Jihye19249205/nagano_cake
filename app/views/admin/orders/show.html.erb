@@ -1,17 +1,33 @@
-<h3><%= @order.customer.last_name  @order.customer.first_name %>さんの注文履歴詳細</h3>
+<h3>注文履歴詳細</h3>
+
+<div class = "container">
+  <h3>購入者　<%= @order.customer.last_name %> <%= @order.customer.first_name %></h3>
+  <h3>注文日 <%= @order.created_at %></h3>
+  <h3>配送先 <%= @order.customer.postal_code %></h3>
+  <h3>支払方法 <%= @order.payment_way %></h3>
+  <h3>注文ステータス</h3>
+</div>
+
 <table>
   <thead>
     <tr>
-      <th>購入日時</th>
-      <th>注文個数</th>
-      <th>注文ステータス</th>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>製作ステータス</th>
+      <th colspan = "1"></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><%= @order.created_at %></td>
-      <td><%= @order.amount %></td>
-      <td><%= @order.dtatus %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
   </tbody>
 </table>
+
+

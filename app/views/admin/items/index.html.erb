@@ -1,3 +1,5 @@
+<%= flash[:notice] %>
+
 <h1>商品一覧</h1>
 
 <p><%= link_to "追加", new_admin_item_path %></p>
@@ -26,8 +28,7 @@
       <%= item.price %>
     </td>
     <td>
-      ジャンル
-      <%= @item.genre_id %>
+      <%= item.genre.name %>
     </td>
     <!--<td>-->
     <!--  ステータス-->

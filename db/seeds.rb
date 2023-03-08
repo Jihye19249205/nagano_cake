@@ -15,7 +15,7 @@ Customer.create!(
   telephone_number: '080-1111-1111'
   )
 
-  Customer.create!(
+Customer.create!(
   email: 'user2@test.com',
   password: 'aaaaaaa',
   last_name: '伊達',
@@ -26,6 +26,11 @@ Customer.create!(
   address: '宮城県仙台市宮城1-1-1',
   telephone_number: '080-2222-2222'
   )
+
+Genre.create!(id: '1', name: 'ケーキ')
+Genre.create!(id: '2', name: 'プリン')
+Genre.create!(id: '3', name: '焼き菓子')
+Genre.create!(id: '4', name: 'キャンディ')
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).

@@ -15,7 +15,15 @@
 
 <div class = "container">
   <% @items.each do |item| %>
-  <div><%= image_tag item.image, size: "100 x 120 " %></div>
+  <div>
+    <%= link_to item_path(item.id) do %>
+      <% if item.image.attached? %>
+        <%= image_tag item.image, size: "80x100 " %>
+      <% else %>
+        <%= image_tag 'no_image', size: "80x100" %>
+      <% end %>
+    <% end %>
+    </div>
   <div><%= item.name %></div>
   <div><%= item.price %></div>
   <% end %>

@@ -2,7 +2,11 @@
 
 
 <!--tebleタグで整える↓-->
-<%= image_tag @item.image, size: "100x120" %>
+<% if @item.image.attached? %>
+  <%= image_tag @item.image, size: "100x120" %>
+<% else %>
+  <%= image_tag 'no_image', size: "100x120" %>
+<% end %>
 <p>商品名<%= @item.name %></p>
 <p>商品説明<%= @item.introduction %></p>
 <p>ジャンル<%= @item.genre.name %></p>

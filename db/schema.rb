@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_26_113503) do
+ActiveRecord::Schema.define(version: 2023_03_05_084718) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2023_02_26_113503) do
     t.integer "amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -129,6 +130,8 @@ ActiveRecord::Schema.define(version: 2023_02_26_113503) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cart_items", "customers", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "cart_items", "items", on_update: :cascade, on_delete: :cascade
   add_foreign_key "items", "genres", on_update: :cascade, on_delete: :cascade
   add_foreign_key "order_details", "items", on_update: :cascade, on_delete: :cascade
   add_foreign_key "order_details", "orders", on_update: :cascade, on_delete: :cascade

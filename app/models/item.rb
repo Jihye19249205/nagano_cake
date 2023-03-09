@@ -5,6 +5,6 @@ class Item < ApplicationRecord
   has_many :cart_items, dependent: :destroy
 
   def add_tax_price
-    (self.price * 1.1).round
+     (price * 1.1).floor
   end
 end

@@ -1,4 +1,6 @@
 class Admin::CustomersController < ApplicationController
+  layout 'header_admin'
+
   def index
     @customers = Customer.all
   end

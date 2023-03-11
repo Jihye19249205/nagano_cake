@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  layout 'header_public'
+  
   def new
     @order = Order.new
   end

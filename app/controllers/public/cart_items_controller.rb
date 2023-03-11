@@ -1,4 +1,5 @@
 class Public::CartItemsController < ApplicationController
+  layout 'header_public'
 
   def index
     @cart_item = CartItem.new

@@ -1,4 +1,5 @@
 class Public::AddressesController < ApplicationController
+  layout 'header_public'
 
   def index
     @addresses = Address.all

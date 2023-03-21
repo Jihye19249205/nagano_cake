@@ -13,7 +13,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.string :postal_code, null: false
       # 送料
       t.integer :shipping_fee, null: false
-      # 請求金額合計
+      # 合計金額
       t.integer :total_payment, null: false
       # 支払方法
       t.integer :payment_way, null: false, default: 0

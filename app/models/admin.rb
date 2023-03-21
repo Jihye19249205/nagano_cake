@@ -4,6 +4,7 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:email]
 
+
   # session[:email] = params[:admin]["E-mail"]
 
 end

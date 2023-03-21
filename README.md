@@ -1,9 +1,7 @@
-# README
+ながのCAKE🍰
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+長野県内で営業している小さなケーキ屋さんの商品を通販で販売するためのECサイト
 
-Things you may want to cover:
 
 * Ruby version
 

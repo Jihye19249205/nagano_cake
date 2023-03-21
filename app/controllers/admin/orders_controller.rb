@@ -1,8 +1,12 @@
 class Admin::OrdersController < ApplicationController
-  # before_action :authenticate_admin!
-  before_action :set_order
+  before_action :authenticate_admin!
+  
+  def index
+    @orders = Order.all
+  end
 
   def show
+    
   end
 
   def update
@@ -13,12 +17,15 @@ class Admin::OrdersController < ApplicationController
 
   private
 
-  def set_order
-    @order = Order.find(params[:id])
-  end
-
   def order_params
-    params.require(:order).permit(:status)
+    params.require(:order).permit(
+      :status,
+      :payment_way,
+      :postal_code,
+      :address,
+      :name,
+      :shipping_fee,
+      :created_at)
   end
 
 end

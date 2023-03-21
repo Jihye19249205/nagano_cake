@@ -1,5 +1,5 @@
 <h2>マイページ</h2>
-<h3>登録情報</h3>
+<h2>登録情報</h2>
 <%= link_to "編集する", edit_customer_path %>
 
 <div class = "container">
@@ -11,4 +11,10 @@
     <tr><th>電話番号</th><td><%= @customer.telephone_number %></td></tr>
     <tr><th>メールアドレス</th><td><%= @customer.email %></td></tr>
     </table>
-  </div>
+</div>
+
+<h2>配送先</h2>
+  <%= link_to "一覧を見る", addresses_path(current_customer) %>
+
+<h2>注文履歴</h2>
+

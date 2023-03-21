@@ -1,8 +1,8 @@
 <div>
   <% if @item.image.attached? %>
-    <%= image_tag @item.image, size: " 200 x 300 " %>
+    <%= image_tag @item.image, size: "330x250" %>
   <% else %>
-    <%= image_tag 'no_image', size: "200 x 300" %>
+    <%= image_tag 'no_image', size: "330x250" %>
   <% end %>
 </div>
 <div>
@@ -15,7 +15,7 @@
   <h4><%= @item.add_tax_price.to_s(:delimited) %>円</h4>
   <p>(税込)</p>
 </div>
-<%= form_with model: @cart_item do |f| %>
+<%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
   <%= f.hidden_field :item_id, :value => @item.id %>
   <%= f.select :amount, *[1..10] %>
   <%= f.submit "カートに入れる" %>

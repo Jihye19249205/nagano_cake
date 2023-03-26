@@ -8,7 +8,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_customer!, except: [:sign_up]
 
   def after_sign_up_path_for(resource)
-    customer_path(current_customer.id)
+    customer_path(current_customer)
   end
 
 

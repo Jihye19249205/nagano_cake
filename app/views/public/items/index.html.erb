@@ -1,18 +1,26 @@
 <h2>商品一覧(全<%= @items.count %>件)</h2>
 
-<!--ジャンル検索機能は共通テンプレ-->
-
-<div class = "container">
+<div class = "row">
   <% @items.each do |item| %>
-  <div>
-    <%= link_to item_path(item.id) do %>
-      <% if item.image.attached? %>
-        <%= image_tag item.image, size: "120x80" %>
-      <% else %>
-        <%= image_tag 'no_image', size: "120x80" %>
-      <% end %>
-    <% end %>
-    </div>
-  <div><%= item.name %></div>
-  <div><%= item.price %></div>
+  <div class = "col-md-3">
+
+    <table>
+      <tr>
+        <td>
+          <%= link_to item_path(item.id) do %>
+            <% if item.image.attached? %>
+              <%= image_tag item.image, size: "200x140" %>
+            <% else %>
+              <%= image_tag 'no_image', size: "200x140" %>
+            <% end %>
+          <% end %>
+        </td>
+        </tr>
+        <tr><td><%= item.name %></td></tr>
+        <tr><td>¥<%= item.price %>(税抜)</td></tr>
+      </tr>
+    </table>
+  </div>
   <% end %>
+</div>
+<%= paginate @items %>

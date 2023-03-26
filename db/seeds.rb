@@ -5,7 +5,7 @@ Admin.create!(
 
 Customer.create!(
   email: 'user1@test.com',
-  password: 'aaaaaaa',
+  password: 'aaaaaa',
   last_name: '織田',
   first_name: '信長',
   last_name_kana: 'オダ',
@@ -17,7 +17,7 @@ Customer.create!(
 
 Customer.create!(
   email: 'user2@test.com',
-  password: 'aaaaaaa',
+  password: 'bbbbbb',
   last_name: '伊達',
   first_name: '政宗',
   last_name_kana: 'ダテ',

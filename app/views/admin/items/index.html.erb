@@ -1,40 +1,46 @@
 <%= flash[:notice] %>
 
-<h1>商品一覧</h1>
-
-<p><%= link_to "追加", new_admin_item_path %></p>
-<!--bootstrapで整える↓-->
-<table>
-  <thead>
+<div class ="container justify-content-center ">
+  <h2 class = "col-md-4">商品一覧</h2>
+  <table class = "float-right">
     <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <!--<th>ステータス</th>-->
+      <td colspan = "3"></td>
+      <td><%= link_to "追加", new_admin_item_path, class: "btn btn-success" %></td>
     </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-    <tr>
-      <td>
-        <%= item.id %>
-      </td>
-      <td>
-        <%= link_to admin_item_path(item.id) do %>
-          <%= item.name %>
-        <% end %>
-      </td>
-      <td>
-        <%= item.price %>
-      </td>
-      <td>
-        <%= item.genre.name %>
-      </td>
-    </tr>
-    <!--<td>-->
-    <!--  ステータス-->
-    <!--</td>-->
-    <% end %>
-  </tbody>
-</table>
+  </table>
+  <table class = "table table-inverse">
+    <thead>
+      <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <!--<th>ステータス</th>-->
+      </tr>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+      <tr>
+        <td>
+          <%= item.id %>
+        </td>
+        <td>
+          <%= link_to admin_item_path(item.id) do %>
+            <%= item.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= item.price %>
+        </td>
+        <td>
+          <%= item.genre.name %>
+        </td>
+      </tr>
+      <!--<td>-->
+      <!--  ステータス-->
+      <!--</td>-->
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= paginate @items %>

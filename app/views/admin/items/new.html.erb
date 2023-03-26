@@ -1,22 +1,33 @@
-<h1>商品新規登録</h1>
-
-<%= form_with model: @item, url: admin_items_path do |f| %>
-  <h4>商品画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-  <h4>商品名</h4>
-  <%= f.text_field :name %>
-  <h4>商品説明</h4>
-  <%= f.text_area :introduction %>
-  <h4>ジャンル</h4>
-  <%= f.collection_select :genre_id, Genre.all , :id, :name %>
-  <h4>税抜価格</h4>
-  <h4><%= f.text_field :price %>円</h4>
-  <!--<h4>販売ステータス</h4>-->
-  <!--販売中、販売停止中でチェックできるやつ実装↓-->
-  <!--f.radio_button :status, "販売中"-->
-  <!--f.radio_button :status, "販売停止中"-->
-
-  <!--bootstrap button success-->
-  <%= f.submit '新規登録' %>
-<!--editとnewページで共通テンプレートを使用する↑-->
-<% end %>
+<div class = "container col-sm-8 px-sm-0 offset-sm-1">
+  <h2>商品新規登録</h2>
+  <%= form_with model: @item, url: admin_items_path do |f| %>
+  <table>
+    <tr>
+      <td>商品画像</td>
+      <td><%= f.file_field :image, accept: "image/*" %></td>
+    </tr>
+    <tr>
+      <td>商品名</td>
+      <td><%= f.text_field :name, placeholder: "商品名" %></td>
+    </tr>
+    <tr>
+      <td>商品説明</td>
+      <td><%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %></td>
+    </tr>
+    <tr>
+      <td>ジャンル</td>
+      <td><%= f.collection_select :genre_id, Genre.all , :id, :name, :prompt => "--選択してください--" %></td>
+    </tr>
+    <tr>
+      <td>税抜価格</td>
+      <td><%= f.text_field :price, placeholder: "1000" %>円</td>
+    </tr>
+    <div>
+    <tr>
+      <td></td>
+      <td><%= f.submit '新規登録', class: "btn btn-success" %></td>
+    </tr>
+    </div>
+  <% end %>
+  </table>
+</div>

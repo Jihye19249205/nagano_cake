@@ -1,33 +1,38 @@
-<h3>注文履歴詳細</h3>
-
+<%= flash[:notice] %>
 <div class = "container">
-  <h3>購入者　<%= @order.customer.last_name %> <%= @order.customer.first_name %></h3>
-  <h3>注文日 <%= @order.created_at %></h3>
-  <h3>配送先 <%= @order.customer.postal_code %></h3>
-  <h3>支払方法 <%= @order.payment_way %></h3>
-  <h3>注文ステータス</h3>
-</div>
+  <h3>注文履歴詳細</h3>
+  <table class = "col-md-4">
+    <tr><th>購入者</th><td><%= @order.customer.last_name %> <%= @order.customer.first_name %></td></tr>
+    <tr><th>注文日</th><td><%= @order.created_at %></td></tr>
+    <tr><th>配送先</th><td><%= @order.customer.postal_code %></td></tr>
+    <tr><th>支払方法</th><td><%= @order.payment_way_i18n %></td></tr>
+  </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>商品名</th>
-      <th>単価（税込）</th>
-      <th>数量</th>
-      <th>小計</th>
-      <th>製作ステータス</th>
-      <th colspan = "1"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+  <table class = "table table-bordered col-md-10">
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>数量</th>
+        <th>小計</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order.order_details.each do |order_detail| %>
+      <tr>
+        <td><%= order_detail.item.name %></td>
+        <td><%= order_detail.unit_price %></td>
+        <td><%= order_detail.amount %></td>
+        <td><%= order_detail.unit_price * order_detail.amount %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <table class = "table table-bordered col-md-4">
+    <tr><th>商品合計</th><td><%= @order.total_payment - @order.shipping_fee %></td></tr>
+    <tr><th>送料</th><td><%= @order.shipping_fee %></td></tr>
+    <tr><th>請求金額合計</th><td><%= @order.total_payment %></td></tr>
+  </table>
+</div>
 
 

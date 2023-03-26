@@ -2,7 +2,7 @@ class Public::ItemsController < ApplicationController
   layout 'header_public'
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page])
   end
 
   def show

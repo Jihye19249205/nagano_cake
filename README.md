@@ -3,20 +3,34 @@
 長野県内で営業している小さなケーキ屋さんの商品を通販で販売するためのECサイト
 
 
-* Ruby version
+★ 開発環境
+* OS：MacOS Ventura
+* 言語：HTML, SCSS, JavaScript, Ruby
+* フレームワーク：Ruby on Rails, Bootstrap
+* JSライブラリ：jQuery
+* IDE：Cloud9
 
-* System dependencies
+★ 検証用ログイン情報（管理者サイド）
+・ログインurl：~/admin/sign_in
+・メールアドレス：test@test.com
+・パスワード：aaaaaa
 
-* Configuration
+★実装機能
+・管理者
+-
+-
+-
+-
+-
+-
 
-* Database creation
 
-* Database initialization
+・顧客
+-
+-
+-
+-
+-
+-
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
